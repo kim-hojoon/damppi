@@ -157,7 +157,7 @@ void app_main(void) {
   ESP_ERROR_CHECK(esp_read_mac(mac, ESP_MAC_WIFI_STA));
   snprintf(hostname, sizeof(hostname), "Damppi %02X%02X%02X", mac[3], mac[4], mac[5]);
 
-  if (err != ESP_OK || !ssid[0] || !pass[0] || !name[0] || !server[0] || inet_pton(AF_INET, server, NULL) != 1) {
+  if (err != ESP_OK || !ssid[0] || !pass[0] || !name[0] || !server[0]) {
     wifi_softap();
   } else {
     btn_init();

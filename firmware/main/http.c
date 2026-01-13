@@ -151,8 +151,7 @@ esp_err_t save_post(httpd_req_t *req) {
 
   free(body);
 
-  if (err != ESP_OK || !new_ssid[0] || !new_pass[0] || !new_name[0] || !new_server[0] ||
-      inet_pton(AF_INET, new_server, NULL) != 1) {
+  if (err != ESP_OK || !new_ssid[0] || !new_pass[0] || !new_name[0] || !new_server[0]) {
     httpd_resp_set_status(req, "400 Bad Request");
     return send_html(req, HTML_FAIL);
   }
