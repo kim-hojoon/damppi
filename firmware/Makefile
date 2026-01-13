@@ -23,5 +23,10 @@ run: build
 dump:
 	@$(IDF_ENV) riscv32-esp-elf-objdump -dS build/damppi.elf
 
+erase:
+	@$(IDF_ENV) idf.py erase-flash
+
+reset: erase flash
+
 clean:
 	rm -rf build
